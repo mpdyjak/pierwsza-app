@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" fill="none" style="background: linear-gradient(135deg, #0B1914 0%, #0F2A21 50%, #0B1914 100%); border-radius: 16px;">
+  <defs>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E3A31" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#132B23" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="accentGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="100%" stop-color="#34D399"/>
+    </linearGradient>
+    <filter id="glowEffect" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Subtitle inside graphic -->
+  <text x="50" y="50" font-family="'Outfit', sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">
+    Łańcuch Wartości i Dystrybucji Biometanu VerdeMetan
+  </text>
+  <text x="50" y="74" font-family="'Inter', sans-serif" font-size="13" font-weight="400" fill="#94A3B8">
+    Od certyfikowanego źródła OZE bezpośrednio do instalacji odbiorców końcowych
+  </text>
+
+  <!-- STEP 1: Wytwarzanie & Uszlachetnianie -->
+  <g transform="translate(50, 110)">
+    <rect width="260" height="320" rx="14" fill="url(#cardBg)" stroke="#225343" stroke-width="1.5"/>
+    <rect x="20" y="20" width="44" height="44" rx="10" fill="#10B981" fill-opacity="0.2"/>
+    <circle cx="42" cy="42" r="14" fill="#10B981"/>
+    <text x="42" y="47" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" fill="#0B1914" text-anchor="middle">1</text>
+    
+    <text x="76" y="38" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Biometanownia</text>
+    <text x="76" y="54" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#34D399">Upgrading biogazu do 98% CH₄</text>
+    
+    <path d="M20 80 H240" stroke="#225343" stroke-width="1"/>
+
+    <text x="24" y="110" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">• Surowce odpadowe i agro</text>
+    <text x="34" y="128" font-family="'Inter', sans-serif" font-size="11" fill="#94A3B8">Gnojowica, bioodpady, wytłoki</text>
+
+    <text x="24" y="160" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">• Membranowe oczyszczanie</text>
+    <text x="34" y="178" font-family="'Inter', sans-serif" font-size="11" fill="#94A3B8">Usunięcie CO₂, H₂S, siloksanów</text>
+
+    <text x="24" y="210" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#E2E8F0">• Jakość gazu ziemnego grupy E</text>
+    <text x="34" y="228" font-family="'Inter', sans-serif" font-size="11" fill="#94A3B8">Ciepło spalania min. 38 MJ/m³</text>
+
+    <rect x="24" y="255" width="212" height="42" rx="8" fill="#0E231B" stroke="#10B981" stroke-dasharray="3 3"/>
+    <text x="130" y="274" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#34D399" text-anchor="middle">CERTYFIKACJA RED II & ISCC</text>
+    <text x="130" y="289" font-family="'Inter', sans-serif" font-size="9" fill="#94A3B8" text-anchor="middle">Gwarancje Pochodzenia TGE</text>
+  </g>
+
+  <!-- Connectors Step 1 -> Step 2 -->
+  <path d="M310 270 H360" stroke="#10B981" stroke-width="3" stroke-dasharray="6 4"/>
+  <polygon points="360,266 370,270 360,274" fill="#10B981"/>
+
+  <!-- STEP 2: Logistyka i Dystrybucja VerdeMetan -->
+  <g transform="translate(370, 110)">
+    <rect width="260" height="320" rx="14" fill="url(#cardBg)" stroke="#10B981" stroke-width="2"/>
+    <rect x="20" y="20" width="44" height="44" rx="10" fill="#10B981" fill-opacity="0.2"/>
+    <circle cx="42" cy="42" r="14" fill="#10B981"/>
+    <text x="42" y="47" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" fill="#0B1914" text-anchor="middle">2</text>
+    
+    <text x="76" y="38" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Modele Dystrybucji</text>
+    <text x="76" y="54" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#34D399">Trzy ścieżki dostaw do klienta</text>
+    
+    <path d="M20 80 H240" stroke="#225343" stroke-width="1"/>
+
+    <!-- Option A -->
+    <rect x="18" y="95" width="224" height="60" rx="8" fill="#112920" stroke="#225343"/>
+    <text x="30" y="118" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#34D399">A. Wirtualny Gazociąg</text>
+    <text x="30" y="136" font-family="'Inter', sans-serif" font-size="10" fill="#CBD5E1">Zatłoczenie do sieci PSG/Gaz-System</text>
+    <text x="30" y="148" font-family="'Inter', sans-serif" font-size="9" fill="#94A3B8">Odbiór z sieci z umorzeniem GDO</text>
+
+    <!-- Option B -->
+    <rect x="18" y="165" width="224" height="64" rx="8" fill="#112920" stroke="#225343"/>
+    <text x="30" y="188" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#34D399">B. Bio-LNG Satelitarne</text>
+    <text x="30" y="206" font-family="'Inter', sans-serif" font-size="10" fill="#CBD5E1">Cysterny kriogeniczne off-grid</text>
+    <text x="30" y="218" font-family="'Inter', sans-serif" font-size="9" fill="#94A3B8">Własna stacja regazyfikacji u klienta</text>
+
+    <!-- Option C -->
+    <rect x="18" y="239" width="224" height="60" rx="8" fill="#112920" stroke="#225343"/>
+    <text x="30" y="260" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#34D399">C. Bio-CNG / Bio-LNG Flota</text>
+    <text x="30" y="278" font-family="'Inter', sans-serif" font-size="10" fill="#CBD5E1">Dedykowane stacje szybkiego tankowania</text>
+    <text x="30" y="290" font-family="'Inter', sans-serif" font-size="9" fill="#94A3B8">Dla ciągników siodłowych i autobusów</text>
+  </g>
+
+  <!-- Connectors Step 2 -> Step 3 -->
+  <path d="M630 270 H680" stroke="#10B981" stroke-width="3" stroke-dasharray="6 4"/>
+  <polygon points="680,266 690,270 680,274" fill="#10B981"/>
+
+  <!-- STEP 3: Odbiorcy Końcowi -->
+  <g transform="translate(690, 110)">
+    <rect width="260" height="320" rx="14" fill="url(#cardBg)" stroke="#225343" stroke-width="1.5"/>
+    <rect x="20" y="20" width="44" height="44" rx="10" fill="#10B981" fill-opacity="0.2"/>
+    <circle cx="42" cy="42" r="14" fill="#10B981"/>
+    <text x="42" y="47" font-family="'Outfit', sans-serif" font-size="14" font-weight="700" fill="#0B1914" text-anchor="middle">3</text>
+    
+    <text x="76" y="38" font-family="'Outfit', sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Odbiorcy Końcowi</text>
+    <text x="76" y="54" font-family="'Inter', sans-serif" font-size="11" font-weight="500" fill="#34D399">Realne korzyści biznesowe</text>
+    
+    <path d="M20 80 H240" stroke="#225343" stroke-width="1"/>
+
+    <text x="24" y="110" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">🏭 Przemysł Energochłonny</text>
+    <text x="34" y="128" font-family="'Inter', sans-serif" font-size="10" fill="#94A3B8">Huty, chemia, ceramika, spożywczy</text>
+    <text x="34" y="142" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#10B981">Zero opłat EU ETS, 100% Drop-in</text>
+
+    <text x="24" y="175" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">♨️ Ciepłownictwo & PEC</text>
+    <text x="34" y="193" font-family="'Inter', sans-serif" font-size="10" fill="#94A3B8">Miejskie sieci ciepłownicze i CHP</text>
+    <text x="34" y="207" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#10B981">Status efektywnego systemu OZE</text>
+
+    <text x="24" y="240" font-family="'Inter', sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">🚛 Floty Transportowe i Logistyka</text>
+    <text x="34" y="258" font-family="'Inter', sans-serif" font-size="10" fill="#94A3B8">Pojazdy ciężarowe Bio-LNG / Bio-CNG</text>
+    <text x="34" y="272" font-family="'Inter', sans-serif" font-size="10" font-weight="600" fill="#10B981">-90% CO₂ w Scope 3 dla klientów</text>
+
+    <rect x="24" y="285" width="212" height="24" rx="4" fill="#10B981" fill-opacity="0.1"/>
+    <text x="130" y="301" font-family="'Inter', sans-serif" font-size="10" font-weight="700" fill="#34D399" text-anchor="middle">BEZ WYMIANY PALNIKÓW I KOTŁÓW</text>
+  </g>
+</svg>

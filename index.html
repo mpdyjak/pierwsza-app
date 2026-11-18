@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VerdeMetan | Dystrybucja Biometanu do Odbiorców Końcowych</title>
+  <meta name="description" content="Niezależny dystrybutor czystego biometanu dla przemysłu, ciepłownictwa i transportu. Zastąp kopalny gaz ziemny w 100% (drop-in) bez wymiany instalacji. Certyfikaty RED II, ISCC, GDO TGE.">
+  <meta name="keywords" content="biometan, dystrybucja biometanu, bio-lng, bio-cng, dekarbonizacja przemysłu, eu ets, gwarancje pochodzenia, red ii, zielona energia dla firm">
+  <meta name="author" content="VerdeMetan Polska">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="VerdeMetan | Czysty Biometan dla Polskiego Przemysłu">
+  <meta property="og:description" content="Dostawy certyfikowanego biometanu sieciowo i w formule Bio-LNG do odbiorców końcowych. Wyeliminuj opłaty EU ETS i zredukuj Scope 1 do zera.">
+  <meta property="og:type" content="website">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              450: '#10B981',
+              850: '#064E3B',
+              925: '#062E23',
+              950: '#071A14',
+            },
+            slate: {
+              850: '#15202B',
+              925: '#0B131A',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="bg-[#07110E] text-slate-200 antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- TOP BANNER (ANNOUNCEMENT) -->
+  <aside aria-label="Komunikat o regulacjach" class="bg-gradient-to-r from-emerald-950 via-[#0D281E] to-emerald-950 border-b border-emerald-800/40 py-2 px-4 text-xs sm:text-sm text-center text-slate-300">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-pulse"></span>
+        Dyrektywa RED III & Kontrakty cPPA 2026-2030
+      </span>
+      <span>Zabezpiecz stabilne dostawy odnawialnego biometanu i uniknij wzrostu cen uprawnień EU ETS.</span>
+      <a href="#kalkulator" class="underline text-emerald-400 hover:text-emerald-300 font-medium ml-1">Sprawdź symulację &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- STICKY HEADER -->
+  <header id="main-header" class="sticky top-0 z-50 bg-[#07110E]/90 backdrop-blur-md border-b border-emerald-900/30 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded-lg p-1">
+        <img src="assets/images/logo-dark.svg" alt="VerdeMetan Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-200">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#odbiorcy" class="hover:text-emerald-400 transition-colors">Dla kogo</a>
+        <a href="#modele-dostaw" class="hover:text-emerald-400 transition-colors">Modele dostaw</a>
+        <a href="#kalkulator" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5 text-emerald-300 font-semibold">
+          <i data-lucide="calculator" class="w-4 h-4 text-emerald-400"></i>
+          Kalkulator CO₂ & ETS
+        </a>
+        <a href="#korzysci" class="hover:text-emerald-400 transition-colors">Dlaczego biometan</a>
+        <a href="#proces" class="hover:text-emerald-400 transition-colors">Jak działamy</a>
+        <a href="#faq" class="hover:text-emerald-400 transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button onclick="downloadBiomethaneSpec()" title="Pobierz specyfikację jakościową gazu grupy E" class="px-3.5 py-2 rounded-lg text-xs font-semibold text-slate-300 bg-emerald-950/60 hover:bg-emerald-900/80 border border-emerald-700/50 hover:border-emerald-500 transition-all flex items-center gap-2">
+          <i data-lucide="file-text" class="w-4 h-4 text-emerald-400"></i>
+          <span>Karta Jakości E</span>
+        </button>
+        <a href="#kontakt" class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 shadow-lg shadow-emerald-900/30 hover:shadow-emerald-700/40 transition-all duration-200 flex items-center gap-2">
+          <span>Zamów Audyt Dostaw</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-toggle" aria-label="Otwórz menu nawigacji" aria-expanded="false" class="lg:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-emerald-950 border border-emerald-900/50">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="lg:hidden fixed inset-x-0 top-20 bg-[#07110E] border-b border-emerald-900/40 p-6 flex flex-col gap-4 shadow-2xl z-40 max-h-[calc(100vh-5rem)] overflow-y-auto">
+      <a href="#odbiorcy" class="mobile-nav-link text-lg font-medium text-slate-200 hover:text-emerald-400 py-2 border-b border-emerald-950">Dla kogo</a>
+      <a href="#modele-dostaw" class="mobile-nav-link text-lg font-medium text-slate-200 hover:text-emerald-400 py-2 border-b border-emerald-950">Modele dostaw (Sieć / Bio-LNG / Floty)</a>
+      <a href="#kalkulator" class="mobile-nav-link text-lg font-semibold text-emerald-400 py-2 border-b border-emerald-950 flex items-center justify-between">
+        <span>Kalkulator Oszczędności ETS</span>
+        <span class="text-xs bg-emerald-900 text-emerald-300 px-2 py-0.5 rounded">Oblicz</span>
+      </a>
+      <a href="#korzysci" class="mobile-nav-link text-lg font-medium text-slate-200 hover:text-emerald-400 py-2 border-b border-emerald-950">Dlaczego biometan</a>
+      <a href="#proces" class="mobile-nav-link text-lg font-medium text-slate-200 hover:text-emerald-400 py-2 border-b border-emerald-950">Ścieżka wdrożenia</a>
+      <a href="#faq" class="mobile-nav-link text-lg font-medium text-slate-200 hover:text-emerald-400 py-2 border-b border-emerald-950">FAQ</a>
+      
+      <div class="pt-4 flex flex-col gap-3">
+        <button onclick="downloadBiomethaneSpec()" class="w-full py-3 rounded-lg text-sm font-semibold text-slate-200 bg-emerald-950 border border-emerald-700/60 flex items-center justify-center gap-2">
+          <i data-lucide="download" class="w-4 h-4 text-emerald-400"></i>
+          Pobierz Parametry Techniczne Gaz E
+        </button>
+        <a href="#kontakt" class="mobile-nav-link w-full py-3 rounded-lg text-sm font-semibold text-center text-white bg-emerald-600 hover:bg-emerald-500 shadow-md">
+          Zamów Bezpłatny Audyt Dostaw
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden hero-glow">
+      <!-- Ambient background circles -->
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-emerald-500/10 rounded-full blur-[130px] pointer-events-none"></div>
+      <div class="absolute top-1/2 right-[-100px] w-[400px] h-[400px] bg-teal-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-4xl mx-auto">
+          
+          <!-- Trust Badge -->
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/70 border border-emerald-500/30 text-emerald-300 text-xs sm:text-sm font-medium mb-8 backdrop-blur-sm shadow-inner">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Bezpośrednie dostawy B2B | KZR INiG | RED II / RED III | Rejestr GDO TGE</span>
+          </div>
+
+          <!-- Hero Headline -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+            Czysty <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-emerald-200">Biometan</span> dla Twojego Zakładu.
+            <span class="block text-slate-100 mt-2 font-bold text-3xl sm:text-4xl lg:text-5xl">Zastąp gaz kopalny bez wymiany kotłów i palników.</span>
+          </h1>
+
+          <!-- Subtitle -->
+          <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed max-w-3xl mx-auto mb-10">
+            Dostarczamy certyfikowany, odnawialny biometan o parametrach gazu wysokometanowego (Grupa E) do zakładów przemysłowych, ciepłowni i baz transportowych. 
+            <strong class="text-emerald-300 font-semibold">100% paliwo drop-in:</strong> zredukuj emisje Scope 1 do zera i wyeliminuj opłaty EU ETS.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <a href="#kontakt" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-xl shadow-emerald-950/80 hover:shadow-emerald-600/30 transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-3">
+              <i data-lucide="shield-check" class="w-5 h-5 text-emerald-200"></i>
+              <span>Skonsultuj Profil Dostaw (Audyt 0 zł)</span>
+            </a>
+            
+            <a href="#kalkulator" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold text-slate-200 bg-emerald-950/80 hover:bg-emerald-900/90 border border-emerald-700/60 hover:border-emerald-400 transition-all duration-200 flex items-center justify-center gap-3">
+              <i data-lucide="calculator" class="w-5 h-5 text-emerald-400"></i>
+              <span>Oblicz Oszczędności ETS & CO₂</span>
+            </a>
+          </div>
+
+          <!-- 4 Pillars Trust Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+            <div class="bg-gradient-to-b from-[#11241D] to-[#0C1B15] border border-emerald-900/50 p-4 sm:p-5 rounded-2xl relative overflow-hidden group hover:border-emerald-600/50 transition-colors">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-3 text-emerald-400">
+                <i data-lucide="flame" class="w-5 h-5"></i>
+              </div>
+              <div class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-0.5">100% Drop-in</div>
+              <p class="text-xs sm:text-sm text-slate-400">Identyczne parametry jak gaz E. Zero zmian w palnikach.</p>
+            </div>
+
+            <div class="bg-gradient-to-b from-[#11241D] to-[#0C1B15] border border-emerald-900/50 p-4 sm:p-5 rounded-2xl relative overflow-hidden group hover:border-emerald-600/50 transition-colors">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-3 text-emerald-400">
+                <i data-lucide="trending-down" class="w-5 h-5"></i>
+              </div>
+              <div class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-0.5">0 zł EU ETS</div>
+              <p class="text-xs sm:text-sm text-slate-400">Emisja zero w rozliczeniach MRR i raportach ESG Scope 1.</p>
+            </div>
+
+            <div class="bg-gradient-to-b from-[#11241D] to-[#0C1B15] border border-emerald-900/50 p-4 sm:p-5 rounded-2xl relative overflow-hidden group hover:border-emerald-600/50 transition-colors">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-3 text-emerald-400">
+                <i data-lucide="truck" class="w-5 h-5"></i>
+              </div>
+              <div class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-0.5">Sieć lub Bio-LNG</div>
+              <p class="text-xs sm:text-sm text-slate-400">Dostawy wirtualne siecią PSG lub fizyczne stacje satelitarne.</p>
+            </div>
+
+            <div class="bg-gradient-to-b from-[#11241D] to-[#0C1B15] border border-emerald-900/50 p-4 sm:p-5 rounded-2xl relative overflow-hidden group hover:border-emerald-600/50 transition-colors">
+              <div class="w-9 h-9 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-3 text-emerald-400">
+                <i data-lucide="award" class="w-5 h-5"></i>
+              </div>
+              <div class="text-xl sm:text-2xl font-bold text-white tracking-tight mb-0.5">Certyfikaty RED</div>
+              <p class="text-xs sm:text-sm text-slate-400">Pełny audyt łańcucha KZR INiG & umorzenie gwarancji TGE.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES & STANDARDS STRIP -->
+    <section class="py-8 bg-[#091511] border-y border-emerald-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center text-xs font-semibold uppercase tracking-wider text-slate-400 mb-6">
+          Zgodność z normami europejskimi i krajowymi systemami certyfikacji energii
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 items-center justify-center">
+          <div class="flex items-center justify-center p-2 rounded-xl bg-[#0D1E18] border border-emerald-900/40 hover:border-emerald-600/40 transition-colors">
+            <img src="assets/images/badge-red2.svg" alt="RED II / III Zgodność OZE UE" class="h-10 w-auto">
+          </div>
+          <div class="flex items-center justify-center p-2 rounded-xl bg-[#0D1E18] border border-emerald-900/40 hover:border-emerald-600/40 transition-colors">
+            <img src="assets/images/badge-iscc.svg" alt="ISCC EU Certyfikacja Łańcucha Dostaw" class="h-10 w-auto">
+          </div>
+          <div class="flex items-center justify-center p-2 rounded-xl bg-[#0D1E18] border border-emerald-900/40 hover:border-emerald-600/40 transition-colors">
+            <img src="assets/images/badge-kzr.svg" alt="KZR INiG System Certyfikacji" class="h-10 w-auto">
+          </div>
+          <div class="flex items-center justify-center p-2 rounded-xl bg-[#0D1E18] border border-emerald-900/40 hover:border-emerald-600/40 transition-colors">
+            <img src="assets/images/badge-tge.svg" alt="Towarowa Giełda Energii - Gwarancje Pochodzenia GDO" class="h-10 w-auto">
+          </div>
+          <div class="flex items-center justify-center p-2 rounded-xl bg-[#0D1E18] border border-emerald-900/40 hover:border-emerald-600/40 transition-colors">
+            <img src="assets/images/badge-ure.svg" alt="Urząd Regulacji Energetyki Koncesja" class="h-10 w-auto">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: ARCHITEKTURA ŁAŃCUCHA DOSTAW (INFOGRAFIKA) -->
+    <section class="py-16 bg-[#081510] border-b border-emerald-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <span class="text-emerald-400 font-semibold text-xs sm:text-sm uppercase tracking-wider block mb-2">Technologia & Łańcuch Wartości</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            Transparentny obieg energii: od biometanowni po instalację odbiorcy
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base mt-2">
+            Gwarantujemy pełną identyfikowalność i audytowalność każdej megawatogodziny (MWh) zgodnie z systemami KZR INiG i RED II.
+          </p>
+        </div>
+
+        <div class="relative rounded-3xl overflow-hidden border border-emerald-800/40 shadow-2xl p-2 sm:p-4 bg-[#0A1D16]">
+          <img src="assets/images/process-infographic.svg" alt="Łańcuch Wartości i Dystrybucji Biometanu VerdeMetan" class="w-full h-auto rounded-2xl">
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: DLA KOGO (SEGMENTY ODBIORCÓW KOŃCOWYCH) -->
+    <section id="odbiorcy" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-16">
+          <span class="text-emerald-400 font-semibold text-xs sm:text-sm uppercase tracking-wider block mb-2">Odbiorcy Końcowi</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Kompleksowe zasilanie w biometan dla kluczowych sektorów gospodarki
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg mt-4">
+            Niezależnie czy Twój zakład posiada przyłącze do gazociągu przesyłowego, czy znajduje się poza siecią gazową — VerdeMetan dobiera model dostaw optymalny pod kątem kosztów i profilu poboru.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <!-- Card 1: Przemysł Ciężki i Energochłonny -->
+          <div class="bg-gradient-to-br from-[#10221B] via-[#0E1C17] to-[#091410] border border-emerald-800/40 rounded-3xl p-8 hover:border-emerald-500/60 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                  <i data-lucide="factory" class="w-7 h-7"></i>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700/40">
+                  Przemysł & Produkcja
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3">Przemysł Energochłonny i Chemiczny</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                Huty szkła, ceramika, chemia procesowa, zakłady papiernicze i metalurgiczne wymagające wysokich temperatur pary technologicznej.
+              </p>
+              
+              <ul class="space-y-3 mb-8 text-sm">
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Bezpośrednie cięcie kosztów EU ETS:</strong> zerowy wskaźnik emisyjny w rocznym bilansie KOBiZE.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Ochrona przed podatkiem granicznym CBAM:</strong> wykaż niski ślad węglowy eksportowanych wyrobów.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Brak przestojów technologicznych:</strong> jakość gazu wysokometanowego grupy E (min. 97.5% CH₄).</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-6 border-t border-emerald-900/40 flex items-center justify-between">
+              <span class="text-xs text-slate-400 font-medium">Model: Bilansowanie sieciowe lub Bio-LNG</span>
+              <a href="#kontakt" class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Wycena dla przemysłu &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: Ciepłownictwo Komunalne i Elektrociepłownie -->
+          <div class="bg-gradient-to-br from-[#10221B] via-[#0E1C17] to-[#091410] border border-emerald-800/40 rounded-3xl p-8 hover:border-emerald-500/60 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 group-hover:scale-110 transition-transform">
+                  <i data-lucide="flame-kindling" class="w-7 h-7"></i>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-teal-950 text-teal-300 border border-teal-700/40">
+                  Ciepłownictwo & PEC
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3">Miejskie Sieci Ciepłownicze & Kogeneracja CHP</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                Miejskie przedsiębiorstwa energetyki cieplnej (PEC), elektrociepłownie gazowe i układy kogeneracyjne stojące przed wymogami dyrektywy EED.
+              </p>
+              
+              <ul class="space-y-3 mb-8 text-sm">
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Spełnienie statusu "efektywnego systemu":</strong> biometan zalicza się w 100% do wskaźnika energii z OZE.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Ochrona mieszkańców przed skokiem taryf:</strong> uniknięcie gigantycznych opłat emisyjnych ETS.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Zastąpienie węgla kamiennego:</strong> czyste ciepło systemowe bez pyłów PM2.5/PM10 i tlenków siarki.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-6 border-t border-emerald-900/40 flex items-center justify-between">
+              <span class="text-xs text-slate-400 font-medium">Model: Wirtualny rurociąg + Gwarancje TGE</span>
+              <a href="#kontakt" class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Wycena dla PEC &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: Transport Ciężki i Logistyka -->
+          <div class="bg-gradient-to-br from-[#10221B] via-[#0E1C17] to-[#091410] border border-emerald-800/40 rounded-3xl p-8 hover:border-emerald-500/60 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                  <i data-lucide="truck" class="w-7 h-7"></i>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-emerald-950 text-emerald-300 border border-emerald-700/40">
+                  Transport Ciężki HDV
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3">Floty Ciężarowe i Centra Dystrybucyjne</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                Ciągniki siodłowe LNG/CNG, miejskie floty autobusowe i operatorzy logistyczni obsługujący międzynarodowe łańcuchy dostaw.
+              </p>
+              
+              <ul class="space-y-3 mb-8 text-sm">
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Do -90% emisji CO₂ w transporcie:</strong> spełnij wymagania Scope 3 Twoich kontrahentów (Amazon, IKEA, etc.).</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Zasięg do 1 600 km na Bio-LNG:</strong> identyczny zasięg i czas tankowania jak olej napędowy (diesel).</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Własna stacja tankowania w bazie:</strong> bezinwestycyjna instalacja stacji tankowania Bio-LNG/Bio-CNG.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-6 border-t border-emerald-900/40 flex items-center justify-between">
+              <span class="text-xs text-slate-400 font-medium">Model: Stacje satelitarne Bio-LNG & karty</span>
+              <a href="#kontakt" class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Oferta dla flot &rarr;
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4: Przemysł Spożywczy & Agro -->
+          <div class="bg-gradient-to-br from-[#10221B] via-[#0E1C17] to-[#091410] border border-emerald-800/40 rounded-3xl p-8 hover:border-emerald-500/60 transition-all duration-300 flex flex-col justify-between group">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 group-hover:scale-110 transition-transform">
+                  <i data-lucide="sprout" class="w-7 h-7"></i>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 rounded-full bg-teal-950 text-teal-300 border border-teal-700/40">
+                  Agro & Food Processing
+                </span>
+              </div>
+              <h3 class="text-2xl font-bold text-white mb-3">Przetwórstwo Spożywcze & Szklarnie</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                Mleczarnie, przetwórnie owocowo-warzywne, browary, ubojnie oraz nowoczesne kompleksy szklarniowe zasilane gazem.
+              </p>
+              
+              <ul class="space-y-3 mb-8 text-sm">
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Prawdziwy Obieg Zamknięty (GOZ):</strong> możliwość odkupu substratów odpadowych w barterze za biometan.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Zielony Certyfikat na etykietach:</strong> podnieś konkurencyjność swoich produktów na rynkach zachodnich.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                  <span><strong>Niezależność od wąskich gardeł sieci:</strong> zasilanie obiektów off-grid poprzez stacje Bio-LNG.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="pt-6 border-t border-emerald-900/40 flex items-center justify-between">
+              <span class="text-xs text-slate-400 font-medium">Model: Bio-LNG / Direct pipeline</span>
+              <a href="#kontakt" class="text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Wycena dla agro &rarr;
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: MODELE DYSTRYBUCJI (INTERAKTYWNY PRZEŁĄCZNIK) -->
+    <section id="modele-dostaw" class="py-20 lg:py-28 bg-[#091612] border-t border-emerald-900/30 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-14">
+          <span class="text-emerald-400 font-semibold text-xs sm:text-sm uppercase tracking-wider block mb-2">Logistyka & Dystrybucja</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Trzy elastyczne modele dostaw do Twojego zakładu
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg mt-4">
+            Dostosowujemy sposób zaopatrzenia do istniejącego przyłącza gazowego, lokalizacji zakładu oraz wolumenu zapotrzebowania.
+          </p>
+        </div>
+
+        <!-- Tab Selector Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 p-2 bg-[#06120D] border border-emerald-900/60 rounded-2xl max-w-4xl mx-auto mb-12">
+          <button data-delivery-tab="tab-grid" class="active flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-sm font-bold border-b-2 border-emerald-500 text-emerald-400 bg-emerald-950/40 transition-all flex items-center justify-center gap-2" aria-selected="true">
+            <i data-lucide="network" class="w-4 h-4"></i>
+            <span>Dostawy Siecią Gazową (PSG / Gaz-System)</span>
+          </button>
+          <button data-delivery-tab="tab-biolng" class="flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-all flex items-center justify-center gap-2" aria-selected="false">
+            <i data-lucide="container" class="w-4 h-4"></i>
+            <span>Stacja Satelitarna Bio-LNG (Off-Grid)</span>
+          </button>
+          <button data-delivery-tab="tab-transport" class="flex-1 min-w-[200px] py-3.5 px-4 rounded-xl text-sm font-bold border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-all flex items-center justify-center gap-2" aria-selected="false">
+            <i data-lucide="fuel" class="w-4 h-4"></i>
+            <span>Bio-CNG & Bio-LNG dla Flot</span>
+          </button>
+        </div>
+
+        <!-- Tab 1: Wirtualna Sieć Gazowa -->
+        <div data-delivery-panel="tab-grid" class="block animate-fadeIn">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0C1F18] border border-emerald-800/40 rounded-3xl p-8 lg:p-12">
+            <div class="lg:col-span-7">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-300 text-xs font-semibold uppercase mb-4">
+                Najprostsze wdrożenie dla odbiorców przyłączonych do sieci
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                Wirtualny Rurociąg & Bilansowanie Handlowe
+              </h3>
+              <p class="text-slate-300 leading-relaxed mb-6">
+                Wykorzystaj Twoje istniejące przyłącze do sieci dystrybucyjnej (PSG) lub przesyłowej (Gaz-System). VerdeMetan zatłacza certyfikowany fizyczny biometan do krajowej sieci gazowej w punkcie wytwarzania, a Twój zakład pobiera go ze standardowego licznika.
+              </p>
+
+              <div class="space-y-4 mb-8">
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+                  <p class="text-sm text-slate-300"><strong class="text-white">Zero CAPEX i prac budowlanych:</strong> brak ingerencji w infrastrukturę fabryki, gaz płynie tą samą rurą co dotychczas.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+                  <p class="text-sm text-slate-300"><strong class="text-white">Gwarancje Pochodzenia (GDO) z rejestru TGE:</strong> formalne umorzenie certyfikatów OZE na rzecz Twojego numeru PPG/KOBiZE.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+                  <p class="text-sm text-slate-300"><strong class="text-white">Elastyczny mix paliwowy:</strong> możliwość zakupu 20%, 50% lub 100% wolumenu w zielonym biometanie.</p>
+                </div>
+              </div>
+
+              <a href="#kontakt" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all shadow-md">
+                <span>Zapytaj o warunki bilansowania sieciowego</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <div class="lg:col-span-5 bg-[#081510] border border-emerald-900/60 rounded-2xl p-6">
+              <h4 class="text-xs uppercase font-bold text-emerald-400 tracking-wider mb-4">Schemat Obiegu Sieciowego</h4>
+              <div class="space-y-4 text-xs">
+                <div class="p-3 rounded-xl bg-[#0F261E] border border-emerald-800/40 flex items-center justify-between">
+                  <span class="text-slate-300 font-medium">1. Wytworzenie & Oczyszczenie</span>
+                  <span class="text-emerald-400 font-bold">98% CH₄</span>
+                </div>
+                <div class="text-center text-emerald-500 font-bold text-lg">&darr;</div>
+                <div class="p-3 rounded-xl bg-[#0F261E] border border-emerald-800/40 flex items-center justify-between">
+                  <span class="text-slate-300 font-medium">2. Zatłoczenie do sieci PSG/Gaz-System</span>
+                  <span class="text-emerald-400 font-bold">Standard Gaz E</span>
+                </div>
+                <div class="text-center text-emerald-500 font-bold text-lg">&darr;</div>
+                <div class="p-3 rounded-xl bg-[#0F261E] border border-emerald-800/40 flex items-center justify-between">
+                  <span class="text-slate-300 font-medium">3. Pobór na liczniku Twojej fabryki</span>
+                  <span class="text-emerald-400 font-bold">Rejestr TGE + KZR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Satelitarne Bio-LNG -->
+        <div data-delivery-panel="tab-biolng" class="hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0C1F18] border border-emerald-800/40 rounded-3xl p-8 lg:p-12">
+            <div class="lg:col-span-7">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-300 text-xs font-semibold uppercase mb-4">
+                Dla zakładów poza siecią lub z ograniczeniami przepustowości
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                Satelitarna Stacja Regazyfikacji Bio-LNG (Model Turnkey BOO)
+              </h3>
+              <p class="text-slate-300 leading-relaxed mb-6">
+                Nie masz przyłącza gazowego lub koszt rozbudowy sieci przez operatora jest zaporowy? Budujemy i finansujemy kriogeniczną stację regazyfikacji Bio-LNG bezpośrednio na terenie Twojej działki.
+              </p>
+
+              <div class="space-y-4 mb-8">
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+                  <p class="text-sm text-slate-300"><strong class="text-white">Model BOO (Build, Own, Operate):</strong> VerdeMetan ponosi 100% kosztów inwestycji w stację i zbiorniki kriogeniczne.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+                  <p class="text-sm text-slate-300"><strong class="text-white">Własna flota cystern kriogenicznych:</strong> regularne dostawy ciekłego biometanu (-162°C) z buforem zapasu na 7-14 dni.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+                  <p class="text-sm text-slate-300"><strong class="text-white">Niezależność od wahań ciśnienia sieci:</strong> stałe, gwarantowane parametry dostarczanego gazu do kotłowni.</p>
+                </div>
+              </div>
+
+              <a href="#kontakt" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all shadow-md">
+                <span>Audyt lokalizacji pod stację Bio-LNG</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <div class="lg:col-span-5 bg-[#081510] border border-emerald-900/60 rounded-2xl p-6">
+              <h4 class="text-xs uppercase font-bold text-emerald-400 tracking-wider mb-4">Elementy Stacji U Klienta</h4>
+              <ul class="space-y-3 text-xs text-slate-300">
+                <li class="p-3 rounded-xl bg-[#0F261E] border border-emerald-800/40">
+                  <div class="font-bold text-white mb-0.5">Pionowy Zbiornik Kriogeniczny (30 - 100 m³)</div>
+                  <div class="text-slate-400">Izolacja próżniowo-perlitowa, ciśnienie robocze do 16 bar.</div>
+                </li>
+                <li class="p-3 rounded-xl bg-[#0F261E] border border-emerald-800/40">
+                  <div class="font-bold text-white mb-0.5">Parownice Atmosferyczne (Głowica regazyfikacji)</div>
+                  <div class="text-slate-400">Bezenergetyczna zamiana cieczy w gaz przy użyciu ciepła powietrza.</div>
+                </li>
+                <li class="p-3 rounded-xl bg-[#0F261E] border border-emerald-800/40">
+                  <div class="font-bold text-white mb-0.5">Stacja Redukcyjno-Pomiarowa z Nawonkiem</div>
+                  <div class="text-slate-400">Precyzyjny pomiar rozliczeniowy i telemetria 24/7.</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Floty Bio-CNG / Bio-LNG -->
+        <div data-delivery-panel="tab-transport" class="hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#0C1F18] border border-emerald-800/40 rounded-3xl p-8 lg:p-12">
+            <div class="lg:col-span-7">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 text-emerald-300 text-xs font-semibold uppercase mb-4">
+                Dla baz transportowych, kurierów i flot komunalnych
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">
+                Stacje Tankowania Bio-CNG i Bio-LNG na Terenie Twojej Bazy
+              </h3>
+              <p class="text-slate-300 leading-relaxed mb-6">
+                Przekształć swoją flotę w neutralną emisyjnie. Projektujemy i instalujemy automatyczne stacje szybkiego tankowania Bio-LNG i Bio-CNG zintegrowane z systemem zarządzania flotą (FMS).
+              </p>
+
+              <div class="space-y-4 mb-8">
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+                  <p class="text-sm text-slate-300"><strong class="text-white">Czas tankowania porównywalny z ON:</strong> 5 do 8 minut na pełne zatankowanie ciągnika siodłowego (zasięg do 1 600 km).</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+                  <p class="text-sm text-slate-300"><strong class="text-white">Karty paliwowe & rozliczenia zbiorcze:</strong> integracja z systemem telemetrycznym pojazdów.</p>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">✓</div>
+                  <p class="text-sm text-slate-300"><strong class="text-white">Gwarantowana cena paliwa:</strong> formuła kontraktu długoterminowego uniezależniająca od skoków cen ropy naftowej.</p>
+                </div>
+              </div>
+
+              <a href="#kontakt" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all shadow-md">
+                <span>Skonsultuj projekt stacji dla floty</span>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+            <div class="lg:col-span-5 bg-[#081510] border border-emerald-900/60 rounded-2xl p-6">
+              <h4 class="text-xs uppercase font-bold text-emerald-400 tracking-wider mb-4">Korzyści Dla Flot Ciężarowych</h4>
+              <div class="space-y-3">
+                <div class="p-3 rounded-xl bg-[#0F261E] border border-emerald-800/40">
+                  <div class="text-emerald-400 font-bold text-base mb-1">-85% do -100% GHG</div>
+                  <div class="text-xs text-slate-300">Zgodność z unijnymi celami redukcji emisji dla pojazdów ciężarowych (HDV CO₂ Standards).</div>
+                </div>
+                <div class="p-3 rounded-xl bg-[#0F261E] border border-emerald-800/40">
+                  <div class="text-emerald-400 font-bold text-base mb-1">Maut & Opłaty Drogowe</div>
+                  <div class="text-xs text-slate-300">Niższe opłaty drogowe w Niemczech i krajach UE dla bezemisyjnych i niskoemisyjnych pojazdów OZE.</div>
+                </div>
+                <div class="p-3 rounded-xl bg-[#0F261E] border border-emerald-800/40">
+                  <div class="text-emerald-400 font-bold text-base mb-1">Cicha praca (PIEK certyfikat)</div>
+                  <div class="text-xs text-slate-300">Silniki gazowe są o 50% cichsze od diesla – możliwość nocnych dostaw w strefach miejskich.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: INTERAKTYWNY KALKULATOR CO₂ I ETS -->
+    <section id="kalkulator" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-emerald-400 font-semibold text-xs sm:text-sm uppercase tracking-wider block mb-2">Symulacja Korzyści Finansowych i Środowiskowych</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Kalkulator Redukcji Emisji CO₂ & Oszczędności EU ETS
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg mt-4">
+            Sprawdź w czasie rzeczywistym, ile zaoszczędzi Twoje przedsiębiorstwo na uprawnieniach emisyjnych i jaki wolumen CO₂ zredukujesz w Scope 1.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Calculator Controls (Left Column) -->
+          <div class="lg:col-span-7 bg-[#0C1F18] border border-emerald-800/40 rounded-3xl p-6 sm:p-8 shadow-xl">
+            
+            <!-- Step 1: Sector selection -->
+            <div class="mb-8">
+              <label class="block text-xs uppercase font-bold tracking-wider text-slate-400 mb-3">
+                1. Wybierz profil Twojego zakładu:
+              </label>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                <label class="cursor-pointer">
+                  <input type="radio" name="sector" value="przemysl" checked class="peer sr-only">
+                  <div class="p-3 rounded-xl border border-emerald-900/60 bg-[#07130F] peer-checked:border-emerald-500 peer-checked:bg-emerald-950/60 peer-checked:text-emerald-300 text-slate-400 text-center transition-all">
+                    <i data-lucide="factory" class="w-5 h-5 mx-auto mb-1"></i>
+                    <span class="text-xs font-semibold block">Przemysł</span>
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="sector" value="cieplownictwo" class="peer sr-only">
+                  <div class="p-3 rounded-xl border border-emerald-900/60 bg-[#07130F] peer-checked:border-emerald-500 peer-checked:bg-emerald-950/60 peer-checked:text-emerald-300 text-slate-400 text-center transition-all">
+                    <i data-lucide="flame" class="w-5 h-5 mx-auto mb-1"></i>
+                    <span class="text-xs font-semibold block">Ciepłownia PEC</span>
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="sector" value="transport" class="peer sr-only">
+                  <div class="p-3 rounded-xl border border-emerald-900/60 bg-[#07130F] peer-checked:border-emerald-500 peer-checked:bg-emerald-950/60 peer-checked:text-emerald-300 text-slate-400 text-center transition-all">
+                    <i data-lucide="truck" class="w-5 h-5 mx-auto mb-1"></i>
+                    <span class="text-xs font-semibold block">Flota / Ciężarówki</span>
+                  </div>
+                </label>
+                <label class="cursor-pointer">
+                  <input type="radio" name="sector" value="agro" class="peer sr-only">
+                  <div class="p-3 rounded-xl border border-emerald-900/60 bg-[#07130F] peer-checked:border-emerald-500 peer-checked:bg-emerald-950/60 peer-checked:text-emerald-300 text-slate-400 text-center transition-all">
+                    <i data-lucide="sprout" class="w-5 h-5 mx-auto mb-1"></i>
+                    <span class="text-xs font-semibold block">Agro & Food</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Step 2: Fuel & Unit -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div>
+                <label for="calc-fuel-source" class="block text-xs uppercase font-bold tracking-wider text-slate-400 mb-2">
+                  Obecnie używane paliwo:
+                </label>
+                <select id="calc-fuel-source" class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl p-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                  <option value="gas" selected>Gaz ziemny kopalny (Grupa E)</option>
+                  <option value="lpg">Gaz płynny LPG / Propan</option>
+                  <option value="oil">Olej opałowy lekki / ciężki</option>
+                  <option value="coal">Węgiel kamienny (Ciepłownictwo)</option>
+                  <option value="diesel">Olej napędowy ON (Transport)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="calc-unit" class="block text-xs uppercase font-bold tracking-wider text-slate-400 mb-2">
+                  Jednostka rozliczeniowa:
+                </label>
+                <select id="calc-unit" class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl p-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                  <option value="mwh" selected>MWh (Megawatogodziny)</option>
+                  <option value="m3">m³ (Metry sześcienne gazu)</option>
+                  <option value="liters">Litry (dla oleju/diesel)</option>
+                  <option value="tons">Tony (dla węgla)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Step 3: Annual Consumption Slider -->
+            <div class="mb-8">
+              <div class="flex items-center justify-between mb-2">
+                <label for="calc-consumption-input" class="text-xs uppercase font-bold tracking-wider text-slate-400">
+                  Roczne zużycie energii:
+                </label>
+                <div class="flex items-center gap-2">
+                  <input type="number" id="calc-consumption-input" value="25000" class="w-28 bg-[#07130F] border border-emerald-700/60 rounded-lg px-2.5 py-1 text-right text-emerald-300 font-bold text-sm focus:outline-none focus:border-emerald-400">
+                  <span id="calc-unit-label" class="text-xs text-slate-400 font-medium">MWh / rok</span>
+                </div>
+              </div>
+              <input type="range" id="calc-consumption-range" min="1000" max="150000" step="1000" value="25000" class="w-full">
+              <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+                <span>Mały zakład (1 000)</span>
+                <span>Średni zakład (50 000)</span>
+                <span>Duży kompleks (150 000+)</span>
+              </div>
+            </div>
+
+            <!-- Step 4: Share of Biomethane Slider -->
+            <div class="mb-8">
+              <div class="flex items-center justify-between mb-2">
+                <label for="calc-share-range" class="text-xs uppercase font-bold tracking-wider text-slate-400">
+                  Planowany udział biometanu w miksie:
+                </label>
+                <span id="calc-share-val" class="text-sm font-bold text-emerald-400">100%</span>
+              </div>
+              <input type="range" id="calc-share-range" min="10" max="100" step="5" value="100" class="w-full">
+              <div class="flex justify-between text-[11px] text-slate-500 mt-1">
+                <span>10% (mix testowy)</span>
+                <span>50% (status OZE)</span>
+                <span>100% (pełna dekarbonizacja)</span>
+              </div>
+            </div>
+
+            <!-- Step 5: ETS Toggle & EUA Price -->
+            <div class="pt-6 border-t border-emerald-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" id="calc-ets-toggle" checked class="w-5 h-5 rounded border-emerald-800 text-emerald-500 focus:ring-emerald-400 bg-[#07130F]">
+                <span class="text-sm font-semibold text-slate-200">
+                  Instalacja objęta systemem EU ETS
+                </span>
+              </label>
+
+              <div id="calc-ets-price-wrapper" class="flex items-center gap-2">
+                <label for="calc-ets-price" class="text-xs text-slate-400">Cena uprawnienia EUA:</label>
+                <input type="number" id="calc-ets-price" value="75" min="20" max="200" class="w-16 bg-[#07130F] border border-emerald-800/80 rounded-lg px-2 py-1 text-center text-xs text-emerald-300 font-bold">
+                <span class="text-xs text-slate-400">€ / t CO₂</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Calculation Results Dashboard (Right Column) -->
+          <div class="lg:col-span-5 bg-gradient-to-br from-[#10241C] to-[#0A1812] border-2 border-emerald-500/40 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+            <div class="flex items-center justify-between mb-6">
+              <span class="text-xs uppercase font-extrabold tracking-wider text-emerald-400">Szacowane Roczne Korzyści</span>
+              <span class="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                Wskaźnik OZE: <span id="res-oze-share">100%</span>
+              </span>
+            </div>
+
+            <!-- Main Metric 1: CO2 Reduction -->
+            <div class="bg-[#07140F] border border-emerald-800/50 rounded-2xl p-5 mb-4">
+              <span class="text-xs text-slate-400 font-medium block mb-1">Roczna redukcja emisji (Scope 1):</span>
+              <div id="res-co2-reduction" class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight text-emerald-300">
+                5 050 t CO₂
+              </div>
+              <span class="text-[11px] text-slate-500 mt-1 block">W oparciu o wskaźnik KOBiZE / MRR dla wybranego paliwa</span>
+            </div>
+
+            <!-- Main Metric 2: ETS Savings in PLN -->
+            <div class="bg-[#07140F] border border-emerald-800/50 rounded-2xl p-5 mb-6">
+              <span class="text-xs text-slate-400 font-medium block mb-1">Oszczędność na opłatach emisyjnych EU ETS:</span>
+              <div id="res-ets-savings-pln" class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                1 628 625 PLN
+              </div>
+              <span id="res-ets-savings-eur" class="text-xs font-semibold text-emerald-400 mt-0.5 block">(378 750 €)</span>
+            </div>
+
+            <!-- Environmental Equivalencies -->
+            <div class="grid grid-cols-2 gap-3 mb-6">
+              <div class="p-3.5 rounded-xl bg-[#091A13] border border-emerald-900/60">
+                <div class="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
+                  <i data-lucide="trees" class="w-4 h-4 text-emerald-400"></i>
+                  <span>Ekwivalent drzew:</span>
+                </div>
+                <div id="res-trees-equiv" class="text-lg font-bold text-white">252 500</div>
+                <div class="text-[10px] text-slate-500">drzew rocznie</div>
+              </div>
+
+              <div class="p-3.5 rounded-xl bg-[#091A13] border border-emerald-900/60">
+                <div class="flex items-center gap-1.5 text-xs text-slate-400 mb-1">
+                  <i data-lucide="truck" class="w-4 h-4 text-emerald-400"></i>
+                  <span>Wycofane ciągniki:</span>
+                </div>
+                <div id="res-trucks-equiv" class="text-lg font-bold text-white">63.1</div>
+                <div class="text-[10px] text-slate-500">ciężarówek diesla</div>
+              </div>
+            </div>
+
+            <!-- Action Button inside Calculator -->
+            <a href="#kontakt" class="w-full py-4 rounded-xl text-center text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 shadow-lg shadow-emerald-900/50 transition-all flex items-center justify-center gap-2">
+              <span>Przekaż wyliczenie do dedykowanej wyceny</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+
+            <p class="text-[11px] text-slate-500 text-center mt-3">
+              Symulacja ma charakter poglądowy. Dokładna kalkulacja cPPA lub stacji Bio-LNG wymaga analizy profilu godzinowego poboru mocy.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: DLACZEGO BIOMETAN (TABELA PORÓWNAWCZA I KORZYŚCI) -->
+    <section id="korzysci" class="py-20 lg:py-28 bg-[#091612] border-t border-emerald-900/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <span class="text-emerald-400 font-semibold text-xs sm:text-sm uppercase tracking-wider block mb-2">Analiza Techniczno-Ekonomiczna</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Dlaczego biometan deklasuje inne ścieżki dekarbonizacji?
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg mt-4">
+            Wodór wymaga wymiany całej infrastruktury, a prąd z OZE nie zawsze jest w stanie dostarczyć wysokotemperaturowej pary technologicznej. Biometan to jedyne gotowe rozwiązanie tu i teraz.
+          </p>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="overflow-x-auto mb-16">
+          <table class="w-full text-left border-collapse bg-[#0C1F18] border border-emerald-800/40 rounded-2xl overflow-hidden">
+            <thead>
+              <tr class="border-b border-emerald-800/60 bg-[#07130F] text-xs font-bold uppercase tracking-wider text-slate-300">
+                <th class="py-4 px-6">Kryterium porównania</th>
+                <th class="py-4 px-6 text-emerald-400 bg-emerald-950/60 border-x border-emerald-700/50">
+                  <div class="flex items-center gap-1.5">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                    <span>Biometan (VerdeMetan)</span>
+                  </div>
+                </th>
+                <th class="py-4 px-6 text-slate-400">Gaz Ziemny Kopalny</th>
+                <th class="py-4 px-6 text-slate-400">Zielony Wodór (H₂)</th>
+                <th class="py-4 px-6 text-slate-400">Węgiel / Olej Opałowy</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-emerald-900/40 text-sm">
+              <tr>
+                <td class="py-4 px-6 font-semibold text-white">Kompatybilność z palnikami (Drop-In)</td>
+                <td class="py-4 px-6 text-emerald-300 font-bold bg-emerald-950/40 border-x border-emerald-700/50">
+                  100% (Zero modyfikacji)
+                </td>
+                <td class="py-4 px-6 text-slate-300">100% (Baza referencyjna)</td>
+                <td class="py-4 px-6 text-red-400">Konieczna wymiana palników & sieci</td>
+                <td class="py-4 px-6 text-amber-400">Wymaga specjalnych kotłów</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-semibold text-white">Koszty uprawnień EU ETS</td>
+                <td class="py-4 px-6 text-emerald-300 font-bold bg-emerald-950/40 border-x border-emerald-700/50">
+                  0 zł (Zwolnienie z opłat)
+                </td>
+                <td class="py-4 px-6 text-red-400">Pełna opłata (~75 € / t CO₂)</td>
+                <td class="py-4 px-6 text-emerald-400">0 zł</td>
+                <td class="py-4 px-6 text-red-500 font-bold">Bardzo wysokie (do 120 €/MWh)</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-semibold text-white">Nakłady inwestycyjne (CAPEX)</td>
+                <td class="py-4 px-6 text-emerald-300 font-bold bg-emerald-950/40 border-x border-emerald-700/50">
+                  0 PLN (Przy sieci lub BOO Bio-LNG)
+                </td>
+                <td class="py-4 px-6 text-slate-300">0 PLN (istniejące)</td>
+                <td class="py-4 px-6 text-red-400">Ekstremalnie wysoki CAPEX</td>
+                <td class="py-4 px-6 text-amber-400">Wysokie koszty filtracji spalin</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-semibold text-white">Dostępność komercyjna na rynku</td>
+                <td class="py-4 px-6 text-emerald-300 font-bold bg-emerald-950/40 border-x border-emerald-700/50">
+                  Dostępny od zaraz (Kontrakty 2026+)
+                </td>
+                <td class="py-4 px-6 text-slate-300">Dostępny</td>
+                <td class="py-4 px-6 text-red-400">Brak infrastruktury przesyłowej</td>
+                <td class="py-4 px-6 text-slate-400">Wycofywany regulacyjnie</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-semibold text-white">Kwalifikacja do celów OZE (RED III / CSRD)</td>
+                <td class="py-4 px-6 text-emerald-300 font-bold bg-emerald-950/40 border-x border-emerald-700/50">
+                  100% OZE (GDO TGE / ISCC)
+                </td>
+                <td class="py-4 px-6 text-red-400">0% OZE (Paliwo kopalne)</td>
+                <td class="py-4 px-6 text-emerald-400">100% OZE (RFNBO)</td>
+                <td class="py-4 px-6 text-red-400">0% OZE</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Key Business Drivers 3-card block -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-[#0C1F18] border border-emerald-800/40 rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="shield-alert" class="w-5 h-5"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">Ryzyko Regulacyjne CSRD</h4>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Od 2025/2026 r. polskie firmy muszą raportować ślad węglowy Scope 1 i 2 według standardów ESRS. Brak redukcji grozi utratą kontraktów eksportowych i droższym finansowaniem bankowym.
+            </p>
+          </div>
+
+          <div class="bg-[#0C1F18] border border-emerald-800/40 rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="scale" class="w-5 h-5"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">Niezależność Geopolityczna</h4>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Biometan jest wytwarzany z lokalnych polskich surowców rolniczych i odpadów przemysłu spożywczego. Uniezależnia Twój zakład od zawirowań na globalnych rynkach importu gazu kopalnego.
+            </p>
+          </div>
+
+          <div class="bg-[#0C1F18] border border-emerald-800/40 rounded-2xl p-6">
+            <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center mb-4">
+              <i data-lucide="trending-up" class="w-5 h-5"></i>
+            </div>
+            <h4 class="text-lg font-bold text-white mb-2">Przewidywalność Cen cPPA</h4>
+            <p class="text-sm text-slate-300 leading-relaxed">
+              Oferujemy wieloletnie kontrakty corporate PPA (gas-cPPA) ze stałą lub indeksowaną formułą cenową, dające wieloletnią stabilność kosztów operacyjnych OPEX Twojego zakładu.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: PROCES WDROŻENIA (4 KROKI) -->
+    <section id="proces" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-emerald-400 font-semibold text-xs sm:text-sm uppercase tracking-wider block mb-2">Ścieżka Współpracy</span>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Od pierwszego audytu do zasilania biometanem w 4 krokach
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg mt-4">
+            Zapewniamy pełną obsługę formalno-prawną, techniczną i logistyczną. Twój dedykowany inżynier projektu prowadzi proces od A do Z.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Step 1 -->
+          <div class="bg-[#0C1F18] border border-emerald-900/60 rounded-2xl p-6 relative">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-extrabold text-xl mb-4">
+              01
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Audyt & Profil Zapotrzebowania</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Analizujemy Twoje roczne i godzinowe zużycie gazu, parametry istniejącego przyłącza lub możliwości posadowienia stacji Bio-LNG. Audyt jest bezpłatny.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-[#0C1F18] border border-emerald-900/60 rounded-2xl p-6 relative">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-extrabold text-xl mb-4">
+              02
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Dobór Modelu & Kontrakt cPPA</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Przedstawiamy symulację oszczędności ETS, model dostaw (sieć / Bio-LNG / flota) oraz elastyczną formułę handlową (stała cena lub indeks TGE).
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-[#0C1F18] border border-emerald-900/60 rounded-2xl p-6 relative">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-extrabold text-xl mb-4">
+              03
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Certyfikacja & Rejestr GDO</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Przygotowujemy dokumentację RED II / ISCC oraz rejestrujemy wolumeny w rejestrze Gwarancji Pochodzenia TGE i bazach KOBiZE.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="bg-[#0C1F18] border border-emerald-900/60 rounded-2xl p-6 relative">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-extrabold text-xl mb-4">
+              04
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Dostawy & Telemetria 24/7</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Rozpoczynamy zasilanie obiektu. Ciągły monitoring telemetryczny jakości i parametrów ciśnienia oraz wsparcie techniczne dyspozytury 24/7.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: FAQ (CZĘSTO ZADAWANE PYTANIA) -->
+    <section id="faq" class="py-20 lg:py-28 bg-[#091612] border-t border-emerald-900/30">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-16">
+          <span class="text-emerald-400 font-semibold text-xs sm:text-sm uppercase tracking-wider block mb-2">Odpowiedzi Ekspertów</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Najczęściej zadawane pytania dotyczące biometanu
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          
+          <!-- FAQ Item 1 -->
+          <div class="faq-item bg-[#0C1F18] border border-emerald-900/60 rounded-2xl p-6 transition-all duration-200">
+            <button class="faq-trigger w-full flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+              <span class="text-base sm:text-lg font-bold text-white pr-4">
+                Czy muszę modyfikować palniki, kotły gazowe lub instalację w fabryce?
+              </span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-emerald-400 shrink-0"></i>
+            </button>
+            <div class="faq-answer">
+              <p class="text-sm text-slate-300 leading-relaxed pt-4 border-t border-emerald-900/40 mt-4">
+                <strong>Nie, w żadnym stopniu.</strong> Dostarczany przez VerdeMetan biometan jest gazem uszlachetnionym do min. 97.5% - 98.5% czystego metanu (CH₄). Posiada identyczne ciepło spalania i liczbę Wobbego jak kopalny gaz ziemny grupy E (GZ-50). Jest to paliwo w 100% typu "drop-in" — urządzenia przemysłowe, kotły parowe, turbiny i palniki pracują bez jakiejkolwiek ingerencji mechanicznej czy regulacyjnej.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="faq-item bg-[#0C1F18] border border-emerald-900/60 rounded-2xl p-6 transition-all duration-200">
+            <button class="faq-trigger w-full flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+              <span class="text-base sm:text-lg font-bold text-white pr-4">
+                W jaki sposób biometan zwalnia moją instalację z opłat EU ETS?
+              </span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-emerald-400 shrink-0"></i>
+            </button>
+            <div class="faq-answer">
+              <p class="text-sm text-slate-300 leading-relaxed pt-4 border-t border-emerald-900/40 mt-4">
+                Zgodnie z unijnym rozporządzeniem MRR (Monitoring and Reporting Regulation) oraz wytycznymi KOBiZE, zrównoważony biometan spełniający kryteria zrównoważonego rozwoju dyrektywy RED II / RED III posiada współczynnik emisyjny równy zero (0.000 t CO₂/MWh). Wraz z dostarczonym gazem przekazujemy komplet certyfikatów KZR INiG / ISCC oraz umorzone Gwarancje Pochodzenia z TGE, co stanowi wiążącą podstawę do wykazania zerowej emisji w rocznym sprawozdaniu emisyjnym weryfikowanym przez akredytowanego audytora.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="faq-item bg-[#0C1F18] border border-emerald-900/60 rounded-2xl p-6 transition-all duration-200">
+            <button class="faq-trigger w-full flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+              <span class="text-base sm:text-lg font-bold text-white pr-4">
+                Jak rozliczany jest biometan dostarczany standardową siecią gazową?
+              </span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-emerald-400 shrink-0"></i>
+            </button>
+            <div class="faq-answer">
+              <p class="text-sm text-slate-300 leading-relaxed pt-4 border-t border-emerald-900/40 mt-4">
+                Proces opiera się na bilansowaniu masowym i wirtualnym gazociągu. Fizyczny biometan jest wtłaczany do sieci przesyłowej lub dystrybucyjnej (PSG / Gaz-System) w miejscu produkcji, a w punkcie odbioru (Twój licznik) następuje jego pobór. Prawnym dowodem zielonego charakteru gazu jest rejestr Gwarancji Pochodzenia prowadzony przez Towarową Giełdę Energii (TGE) na podstawie Prawa Energetycznego.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="faq-item bg-[#0C1F18] border border-emerald-900/60 rounded-2xl p-6 transition-all duration-200">
+            <button class="faq-trigger w-full flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+              <span class="text-base sm:text-lg font-bold text-white pr-4">
+                Czy budowa stacji satelitarnej Bio-LNG wymaga inwestycji finansowej po stronie klienta?
+              </span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-emerald-400 shrink-0"></i>
+            </button>
+            <div class="faq-answer">
+              <p class="text-sm text-slate-300 leading-relaxed pt-4 border-t border-emerald-900/40 mt-4">
+                W modelu BOO (Build, Own, Operate) VerdeMetan finansuje 100% kosztów urządzeń stacji regazyfikacji, zbiorników kriogenicznych oraz instalacji telemetrycznej. Klient udostępnia jedynie utwardzony fragment działki oraz podpisuje długoterminowy kontrakt na wolumen dostaw gazu.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="faq-item bg-[#0C1F18] border border-emerald-900/60 rounded-2xl p-6 transition-all duration-200">
+            <button class="faq-trigger w-full flex items-center justify-between text-left focus:outline-none" aria-expanded="false">
+              <span class="text-base sm:text-lg font-bold text-white pr-4">
+                Jaka jest minimalna wielkość zapotrzebowania, aby podjąć współpracę?
+              </span>
+              <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-emerald-400 shrink-0"></i>
+            </button>
+            <div class="faq-answer">
+              <p class="text-sm text-slate-300 leading-relaxed pt-4 border-t border-emerald-900/40 mt-4">
+                Dla dostaw w formule bilansowania sieciowego obsługujemy podmioty już od 1 000 MWh rocznego zużycia. Dla instalacji satelitarnych Bio-LNG optymalny ekonomicznie wolumen zaczyna się od około 3 000 - 5 000 MWh rocznie lub dla flot transportowych liczących od 5 ciągników siodłowych wzwyż.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: FORMULARZ ZAMÓWIENIA AUDYTU I KONTAKT -->
+    <section id="kontakt" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Contact Left Info -->
+          <div class="lg:col-span-5">
+            <span class="text-emerald-400 font-semibold text-xs sm:text-sm uppercase tracking-wider block mb-2">Rozpocznij Transformację</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-6">
+              Zamów bezpłatny audyt dostaw biometanu dla Twojego zakładu
+            </h2>
+            <p class="text-slate-300 leading-relaxed mb-8">
+              Nasi inżynierowie i doradcy rynku gazu przygotują dla Ciebie kompletną analizę techniczną, symulację redukcji kosztów ETS oraz propozycję modelu kontraktowego dopasowanego do Twojej branży.
+            </p>
+
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs uppercase font-bold text-slate-400">Dedykowana Infolinia B2B</div>
+                  <a href="tel:+48221204050" class="text-lg font-bold text-white hover:text-emerald-400 transition-colors">+48 22 120 40 50</a>
+                  <div class="text-xs text-slate-500">Pn - Pt: 8:00 - 17:00</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs uppercase font-bold text-slate-400">Biuro Obsługi Klientów Przemysłowych</div>
+                  <a href="mailto:kontakt@verdemetan.pl" class="text-lg font-bold text-white hover:text-emerald-400 transition-colors">kontakt@verdemetan.pl</a>
+                  <div class="text-xs text-slate-500">Odpowiedź do 24 godzin</div>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-xs uppercase font-bold text-slate-400">Siedziba Główna</div>
+                  <div class="text-sm font-semibold text-white">VerdeMetan Polska Sp. z o.o.</div>
+                  <div class="text-xs text-slate-400">Rondo ONZ 1, 00-124 Warszawa | Koncesja Prezesa URE</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Download Spec button in info box -->
+            <div class="mt-8 p-4 rounded-2xl bg-[#091A13] border border-emerald-800/40">
+              <div class="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-1">Materiały Techniczne Do Pobrania</div>
+              <p class="text-xs text-slate-400 mb-3">Pobierz aktualną kartę jakości biometanu zgodną z normą PN-EN 16723-1 dla sieci przesyłowej i dystrybucyjnej.</p>
+              <button onclick="downloadBiomethaneSpec()" class="text-xs font-semibold text-emerald-300 hover:text-white underline flex items-center gap-1.5">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                Pobierz specyfikację techniczną (.txt / Karta E)
+              </button>
+            </div>
+          </div>
+
+          <!-- Contact Form (Right Column) -->
+          <div class="lg:col-span-7 bg-[#0C1F18] border border-emerald-800/50 rounded-3xl p-8 sm:p-10 shadow-2xl">
+            <h3 class="text-xl font-bold text-white mb-2">Formularz Zgłoszeniowy Audytu Dostaw</h3>
+            <p class="text-xs text-slate-400 mb-6">Wypełnij formularz – skontaktujemy się z dedykowaną symulacją techniczną.</p>
+
+            <form id="audit-form" class="space-y-4">
+              <input type="hidden" id="form-calc-summary" name="calc_summary" value="">
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="company_name" class="block text-xs uppercase font-bold text-slate-400 mb-1">Nazwa Firmy / Zakładu *</label>
+                  <input type="text" id="company_name" name="company_name" required placeholder="np. Ceramika Polska S.A." class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                  <label for="nip" class="block text-xs uppercase font-bold text-slate-400 mb-1">Numer NIP</label>
+                  <input type="text" id="nip" name="nip" placeholder="np. 5250000000" class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="contact_name" class="block text-xs uppercase font-bold text-slate-400 mb-1">Osoba Kontaktowa *</label>
+                  <input type="text" id="contact_name" name="contact_name" required placeholder="Imię i Nazwisko / Stanowisko" class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                </div>
+                <div>
+                  <label for="phone" class="block text-xs uppercase font-bold text-slate-400 mb-1">Numer Telefonu *</label>
+                  <input type="tel" id="phone" name="phone" required placeholder="+48 600 000 000" class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                </div>
+              </div>
+
+              <div>
+                <label for="email" class="block text-xs uppercase font-bold text-slate-400 mb-1">Służbowy Adres E-mail *</label>
+                <input type="email" id="email" name="email" required placeholder="nazwisko@twoja-firma.pl" class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="delivery_model" class="block text-xs uppercase font-bold text-slate-400 mb-1">Preferowany Model Dostaw</label>
+                  <select id="delivery_model" name="delivery_model" class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    <option value="siec">Sieć Gazowa (PSG / Gaz-System)</option>
+                    <option value="biolng">Stacja Satelitarna Bio-LNG (Off-Grid)</option>
+                    <option value="flota">Stacja Paliw Bio-CNG/Bio-LNG (Flota)</option>
+                    <option value="nie_wiem">Do ustalenia z doradcą</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="annual_mwh" class="block text-xs uppercase font-bold text-slate-400 mb-1">Szacowane Roczne Zużycie</label>
+                  <input type="text" id="annual_mwh" name="annual_mwh" placeholder="np. 20 000 MWh lub m³" class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500">
+                </div>
+              </div>
+
+              <div>
+                <label for="notes" class="block text-xs uppercase font-bold text-slate-400 mb-1">Lokalizacja Zakładu / Dodatkowe Uwagi</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Podaj miejscowość zakładu, obecnego dostawcę lub specyfikę procesu technologicznego..." class="w-full bg-[#07130F] border border-emerald-900/60 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 focus:outline-none focus:border-emerald-500"></textarea>
+              </div>
+
+              <div class="flex items-start gap-2 pt-2">
+                <input type="checkbox" id="rodo" required class="w-4 h-4 mt-0.5 rounded border-emerald-800 text-emerald-500 focus:ring-emerald-400 bg-[#07130F]">
+                <label for="rodo" class="text-[11px] text-slate-400 leading-snug">
+                  Wyrażam zgodę na przetwarzanie podanych danych w celu sporządzenia oferty dostaw biometanu przez VerdeMetan Polska Sp. z o.o. zgodnie z Polityką Prywatności.
+                </label>
+              </div>
+
+              <button type="submit" class="w-full py-4 rounded-xl text-base font-bold text-white bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 shadow-xl shadow-emerald-950/80 transition-all flex items-center justify-center gap-2 mt-4">
+                <span>Wyślij Zapytanie o Audyt Dostaw</span>
+                <i data-lucide="send" class="w-4 h-4"></i>
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- CONFIRMATION MODAL -->
+  <div id="modal-success" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="bg-[#0C1F18] border-2 border-emerald-500 rounded-3xl p-8 max-w-lg w-full text-center relative shadow-2xl">
+      <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="check-circle" class="w-10 h-10"></i>
+      </div>
+      <h3 class="text-2xl font-bold text-white mb-2">Zapytanie zostało przyjęte!</h3>
+      <p class="text-sm text-slate-300 mb-6">
+        Dziękujemy za kontakt. Dedykowany inżynier projektów biometanowych VerdeMetan przeanalizuje profil Twojego zakładu i skontaktuje się w ciągu 24 godzin z wstępną symulacją handlową.
+      </p>
+      <div class="p-4 rounded-xl bg-[#07130F] border border-emerald-900/60 mb-6 text-xs text-slate-400 text-left space-y-1">
+        <div><strong>Status:</strong> Zarejestrowano w systemie CRM B2B</div>
+        <div><strong>Dział:</strong> Zespół Kontraktowania OZE i Bilansowania GDO</div>
+      </div>
+      <button id="modal-success-close" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all">
+        Zamknij okno
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#040C0A] border-t border-emerald-900/40 pt-16 pb-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+        
+        <!-- Col 1: Brand Info -->
+        <div class="lg:col-span-2">
+          <img src="assets/images/logo-dark.svg" alt="VerdeMetan Logo" class="h-9 w-auto mb-4">
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm mb-4">
+            VerdeMetan Polska to licencjonowany dystrybutor czystego biometanu (Grupa E) dla przemysłu, ciepłownictwa i transportu. Realizujemy dostawy wirtualne siecią gazową oraz budujemy stacje satelitarne Bio-LNG off-grid.
+          </p>
+          <div class="text-[11px] text-slate-500">
+            Koncesja URE: Nr OPG/2024/VERDE | Certyfikat RED II: KZR-INiG/2024/091
+          </div>
+        </div>
+
+        <!-- Col 2: Oferta -->
+        <div>
+          <div class="text-xs font-bold text-white uppercase tracking-wider mb-3">Modele Dostaw</div>
+          <ul class="space-y-2">
+            <li><a href="#modele-dostaw" class="hover:text-emerald-400 transition-colors">Bilansowanie w sieci PSG</a></li>
+            <li><a href="#modele-dostaw" class="hover:text-emerald-400 transition-colors">Stacje Satelitarne Bio-LNG</a></li>
+            <li><a href="#modele-dostaw" class="hover:text-emerald-400 transition-colors">Stacje Tankowania Bio-CNG</a></li>
+            <li><a href="#modele-dostaw" class="hover:text-emerald-400 transition-colors">Kontrakty Gas-cPPA</a></li>
+            <li><a href="#modele-dostaw" class="hover:text-emerald-400 transition-colors">Gwarancje Pochodzenia TGE</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Sektory -->
+        <div>
+          <div class="text-xs font-bold text-white uppercase tracking-wider mb-3">Dla Kogo</div>
+          <ul class="space-y-2">
+            <li><a href="#odbiorcy" class="hover:text-emerald-400 transition-colors">Przemysł energochłonny</a></li>
+            <li><a href="#odbiorcy" class="hover:text-emerald-400 transition-colors">Miejskie ciepłownie (PEC)</a></li>
+            <li><a href="#odbiorcy" class="hover:text-emerald-400 transition-colors">Floty transportowe (HDV)</a></li>
+            <li><a href="#odbiorcy" class="hover:text-emerald-400 transition-colors">Przetwórstwo spożywcze</a></li>
+            <li><a href="#kalkulator" class="hover:text-emerald-400 transition-colors">Kalkulator redukcji ETS</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Kontakt & Dyżur -->
+        <div>
+          <div class="text-xs font-bold text-white uppercase tracking-wider mb-3">Kontakt B2B</div>
+          <div class="space-y-2">
+            <div>Infolinia: <span class="text-white font-medium">+48 22 120 40 50</span></div>
+            <div>E-mail: <span class="text-white font-medium">kontakt@verdemetan.pl</span></div>
+            <div>Dyspozytura 24/7: <span class="text-emerald-400 font-medium">dyspozycja@verdemetan.pl</span></div>
+            <div>Rondo ONZ 1, 00-124 Warszawa</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-emerald-950 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          &copy; 2026 VerdeMetan Polska Sp. z o.o. Wszelkie prawa zastrzeżone.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-emerald-400 transition-colors">Polityka Prywatności i RODO</a>
+          <a href="#" class="hover:text-emerald-400 transition-colors">Regulamin Świadczenia Usług</a>
+          <button onclick="downloadBiomethaneSpec()" class="text-emerald-400 hover:underline">Karta Techniczna Gazu</button>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/calculator.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

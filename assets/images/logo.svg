@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none">
+  <!-- Flame/Leaf Eco-Biomethane Icon -->
+  <defs>
+    <linearGradient id="leafGrad" x1="10" y1="4" x2="48" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="20" y1="12" x2="52" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399" />
+      <stop offset="100%" stop-color="#047857" />
+    </linearGradient>
+    <linearGradient id="flameInner" x1="24" y1="20" x2="38" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6EE7B7" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(4, 4)">
+    <!-- Outer Leaf Shape -->
+    <path d="M28 2C28 2 52 16 52 38C52 48 43 56 32 56C19 56 10 46 10 32C10 16 28 2 28 2Z" fill="url(#leafGrad)" opacity="0.95"/>
+    <!-- Gas droplet / flame cut -->
+    <path d="M30 10C30 10 46 22 46 38C46 45 40 51 32 51C22 51 16 43 16 33C16 21 30 10 30 10Z" fill="url(#glowGrad)"/>
+    <!-- Inner pure energy core -->
+    <path d="M31 18C31 18 40 28 40 37C40 42 36 46 31 46C26 46 22 41 22 35C22 26 31 18 31 18Z" fill="url(#flameInner)"/>
+    <!-- Molecule node dots -->
+    <circle cx="28" cy="6" r="3" fill="#34D399"/>
+    <circle cx="48" cy="24" r="2.5" fill="#6EE7B7"/>
+    <circle cx="12" cy="42" r="2.5" fill="#34D399"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="74" y="34" font-family="'Outfit', 'Inter', system-ui, sans-serif" font-size="24" font-weight="800" fill="#0F172A" letter-spacing="-0.5">
+    VERDE<tspan fill="#059669">METAN</tspan>
+  </text>
+  <text x="75" y="49" font-family="'Inter', system-ui, sans-serif" font-size="9" font-weight="600" fill="#64748B" letter-spacing="1.8">
+    DYSTRYBUCJA BIOMETANU DLA PRZEMYSŁU
+  </text>
+</svg>
